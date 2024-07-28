@@ -66,6 +66,7 @@ class _AddTransactionState extends State<AddTransaction> {
             ),
             const SizedBox(height: 20),
             const Row(
+              mainAxisAlignment:  MainAxisAlignment.spaceAround,
               children: [
                 ChoiceChip(
                   label: Text('Cost',
@@ -73,19 +74,21 @@ class _AddTransactionState extends State<AddTransaction> {
                   selected: true,
                   selectedColor: Colors.indigo,
                 ),
-                SizedBox(height: 120, width: 80),
+                SizedBox(height: 100),
                 ChoiceChip(
                   label: Text('Income',
                       style: TextStyle(fontSize: 24, color: Colors.indigo)),
                   selected: false,
                   selectedColor: Colors.indigo,
                 ),
+                const SizedBox(height:20),
+                TextButton(onPressed: () {},
+                  child: const Text ('Transaction Date', style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),),
               ],
             ),
-            const SizedBox(height:20),
-           TextButton(onPressed: () {},
-    child: const Text ('Transaction', style: TextStyle(fontSize: 24, color: Colors.white),
-    ),),
+
+
           ],
         ));
   }
