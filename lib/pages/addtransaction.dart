@@ -8,8 +8,7 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
-
- String type = 'Income'; //for btn
+  String type = 'Income'; //for btn
 
   @override
   Widget build(BuildContext context) {
@@ -68,32 +67,51 @@ class _AddTransactionState extends State<AddTransaction> {
     ),
     ),
     const SizedBox(height: 20),
-    const Row(
+    Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
     ChoiceChip(
     label: Text('Cost',
-    style: TextStyle(fontSize: 20, color: Colors.black)),
-    selected: true,
-    selectedColor: Colors.red,
+    style: TextStyle(
+    fontSize: 20,
+    color: type == 'Cost' ? Colors.white : Colors.indigo),
+    ),
+      selected: type == 'Cost' ? true : false,
+      onSelected: (val) {
+        if (val) {
+          setState(() {
+            type = 'Cost';
+          });
+        }
+      },
+    selectedColor: Colors.indigo,
     ),
     SizedBox(height: 100),
     ChoiceChip(
-    label: Text('Income',
-    style: TextStyle(fontSize: 20, color: type == 'Income' ? Colors.white : Colors.indigo),),
-    selected: type == 'Income' ? true: false,
-    onSelected: (val){if(val){setState((){type ='Income';});}},
+    label: Text(
+    'Income',
+    style: TextStyle(
+    fontSize: 20,
+    color: type == 'Income' ? Colors.white : Colors.indigo),
+    ),
+    selected: type == 'Income' ? true : false,
+    onSelected: (val) {
+    if (val) {
+    setState(() {
+    type = 'Income';
+    });
+    }
+    },
     selectedColor: Colors.indigo,
     ),
     SizedBox(height: 20),
     TextButton(
     onPressed: null,
-    child:  Text(
+    child: Text(
     'Trans Date',
     style: TextStyle(fontSize: 20, color: Colors.white),
     ),
     ),
-
     ],
     ),
     const SizedBox(height: 20),
@@ -101,17 +119,16 @@ class _AddTransactionState extends State<AddTransaction> {
     padding: EdgeInsets.all(8.0),
     child: ElevatedButton(
     onPressed: null,
-    child: Text('Add', style: TextStyle(color: Colors.white, fontSize: 20
-    )
+    child: Text(
+    'Add',
+    style: TextStyle(color: Colors.white, fontSize: 20),
+    ),
+    ),
+    ),
+    ]
     ,
     )
     ,
-
-
-    ),
-    ),
-    ],
-      ),
     );
   }
 }
