@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: const Color(0xff657b7c),
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text(
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.lightBlue.shade50, // رنگ پس‌زمینه
+              color: Colors.lightBlue.shade50, // 
               borderRadius: BorderRadius.circular(10),
             ),
 

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class AddTransaction extends StatefulWidget {
@@ -10,6 +12,36 @@ class AddTransaction extends StatefulWidget {
 class _AddTransactionState extends State<AddTransaction> {
   String type = 'Income'; //for btn
   DateTime selectedDate = DateTime.now();
+
+  // DateTime selectedDate = DateTime.now();
+
+  List<String> months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  Future<void> _selectedDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2010, 01),
+        lastDate: DateTime(2050, 12));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +120,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 },
                 selectedColor: Colors.indigo,
               ),
-             const SizedBox(height: 100),
+              const SizedBox(height: 100),
               ChoiceChip(
                 label: Text(
                   'Income',
@@ -108,11 +140,24 @@ class _AddTransactionState extends State<AddTransaction> {
               ),
               const SizedBox(height: 20),
               TextButton(
-                onPressed: () {},
-                child: Text(
-                  '${selectedDate.month}-${selectedDate.day}',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                onPressed: () {
+                  _selectedDate(context);
+                },
+                child: Container(
+                  padding:  const EdgeInsets.only(left: 10.0,right: 10,top: 8,bottom: 8), // Set the internal padding of the container
+                  decoration: BoxDecoration(
+                    color: Colors.green, // Background color
+                    borderRadius: BorderRadius.circular(5.0), // Rounded corners
+                  ),
+                  child: Text(
+                    '${selectedDate.year.toString().substring(2)}-${months[selectedDate.month - 1]}-${selectedDate.day}',
+                    style: const TextStyle(
+                      fontSize: 22,
+                      color: Colors.white, // Text color
+                    ),
+                  ),
                 ),
+
               ),
             ],
           ),
