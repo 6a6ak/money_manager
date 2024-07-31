@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:money_manager/pages/addtransaction.dart';
+//import 'package:flutter/services.dart';
+import 'package:money_manager/pages/add_transaction.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.lightBlue.shade50, // 
+              color: Colors.lightBlue.shade50, //
               borderRadius: BorderRadius.circular(10),
             ),
 
