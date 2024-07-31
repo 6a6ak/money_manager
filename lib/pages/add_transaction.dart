@@ -29,6 +29,8 @@ class _AddTransactionState extends State<AddTransaction> {
     'Nov',
     'Dec',
   ];
+  int? amount;
+  String? description;
 
   Future<void> _selectedDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -63,9 +65,14 @@ class _AddTransactionState extends State<AddTransaction> {
               color: Colors.lightBlue.shade50, //bg color
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const TextField(
+            child: TextField(
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              onChanged: (val) {
+                try {
+                  amount = int.parse(val);
+                } catch (e) {}
+              },
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Amount',
                 hintText: 'Amount',
@@ -85,10 +92,13 @@ class _AddTransactionState extends State<AddTransaction> {
               color: Colors.lightBlue.shade50,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const TextField(
-              keyboardType: TextInputType.number,
+            child: TextField(
+              keyboardType: TextInputType.text,
               maxLength: 30,
-              decoration: InputDecoration(
+              onChanged: (val) {
+                description = val;
+              },
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Description',
                 hintText: 'Write a description ',
@@ -144,7 +154,9 @@ class _AddTransactionState extends State<AddTransaction> {
                   _selectedDate(context);
                 },
                 child: Container(
-                  padding:  const EdgeInsets.only(left: 10.0,right: 10,top: 8,bottom: 8), // Set the internal padding of the container
+                  padding: const EdgeInsets.only(
+                      left: 10.0, right: 10, top: 8, bottom: 8),
+                  // Set the internal padding of the container
                   decoration: BoxDecoration(
                     color: Colors.green, // Background color
                     borderRadius: BorderRadius.circular(5.0), // Rounded corners
@@ -157,16 +169,20 @@ class _AddTransactionState extends State<AddTransaction> {
                     ),
                   ),
                 ),
-
               ),
             ],
           ),
           const SizedBox(height: 20),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+           Padding(
+            padding:const EdgeInsets.all(8.0),
             child: ElevatedButton(
-              onPressed: null,
-              child: Text(
+              onPressed: (){
+                print(amount);
+                print(description);
+                print(type);
+                print(selectedDate);
+              },
+              child: const Text(
                 'Add',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:money_manager/pages/homepage.dart';
-void main() {
+import  'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+void main() async {
   runApp(const MyApp());
+await Hive.initFlutter();
+await Hive.openBox('money');
+
 }
 
 class MyApp extends StatelessWidget {
