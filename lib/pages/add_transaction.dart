@@ -1,6 +1,7 @@
 //import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:money_manager/db/db_manager.dart';
 
 class AddTransaction extends StatefulWidget {
   const AddTransaction({super.key});
@@ -177,10 +178,11 @@ class _AddTransactionState extends State<AddTransaction> {
             padding:const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: (){
-                print(amount);
-                print(description);
-                print(type);
-                print(selectedDate);
+                if(amount != null && description!.isNotEmpty){
+                  DbManager dbmanager = DbManager();
+                dbmanager.addData(amount!, selectedDate, description!, type);
+                }else {print('Wrong');}
+
               },
               child: const Text(
                 'Add',
