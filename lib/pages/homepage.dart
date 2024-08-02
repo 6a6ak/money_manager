@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: const Icon(Icons.add, size: 40, color: Colors.lime),
       ),
-      body: SingleChildScrollView( // اضافه کردن SingleChildScrollView برای اسکرول شدن صفحه در صورت نیاز
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Text(
