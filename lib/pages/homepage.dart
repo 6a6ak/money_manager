@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Text(
-              'Here is some text before the containers',
+              'Dear user welcome',
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.white,
