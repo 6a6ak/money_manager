@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:money_manager/db/db_manager.dart';
 import 'package:money_manager/pages/add_transaction.dart';
+import 'package:money_manager/colors.dart';
+import 'package:money_manager/styles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: AppColors.ember,
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(

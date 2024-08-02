@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primaryColor = Color(0xff657b7c);
-  static const Color secondaryColor = Color(0xff092635);
-  static const Color accentColor = Colors.lime;
-  static const Color buttonColor = Colors.blueGrey;
-  static const Color textColor = Colors.white;
+  static const Color mist = Color(0xffe2e8e2);
+  static const Color storm = Color(0xff657b7c);
+  static const Color ink = Color(0xff092635);
+  static const Color foam = Color(0xff75a8ac);
+  static const Color pine = Color(0xff4a8d7f);
+  static const Color ember = Color(0xffe64609);
 }
