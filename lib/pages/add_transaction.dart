@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:money_manager/db/db_manager.dart';
+import 'package:money_manager/pages/styles/colors.dart';
+import 'package:money_manager/pages/styles/styles.dart';
 
 class AddTransaction extends StatefulWidget {
   const AddTransaction({super.key});
@@ -49,9 +51,9 @@ class _AddTransactionState extends State<AddTransaction> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: AppColors.foam,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColors.foam,
         title: const Text(
           'New Transaction',
           style: TextStyle(color: Colors.white),
@@ -119,7 +121,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   'Cost',
                   style: TextStyle(
                       fontSize: 20,
-                      color: type == 'Cost' ? Colors.white : Colors.indigo),
+                      color: type == 'Cost' ? AppColors.disable : AppColors.pine),
                 ),
                 selected: type == 'Cost' ? true : false,
                 onSelected: (val) {
@@ -129,7 +131,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     });
                   }
                 },
-                selectedColor: Colors.indigo,
+                selectedColor: AppColors.pine,
               ),
               const SizedBox(height: 100),
               ChoiceChip(
@@ -137,7 +139,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   'Income',
                   style: TextStyle(
                       fontSize: 20,
-                      color: type == 'Income' ? Colors.white : Colors.indigo),
+                      color: type == 'Income' ? AppColors.disable : AppColors.pine),
                 ),
                 selected: type == 'Income' ? true : false,
                 onSelected: (val) {
@@ -147,7 +149,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     });
                   }
                 },
-                selectedColor: Colors.indigo,
+                selectedColor: AppColors.pine,
               ),
               const SizedBox(height: 20),
               TextButton(
@@ -159,15 +161,12 @@ class _AddTransactionState extends State<AddTransaction> {
                       left: 10.0, right: 10, top: 8, bottom: 8),
                   // Set the internal padding of the container
                   decoration: BoxDecoration(
-                    color: Colors.green, // Background color
+                    color: AppColors.ink, // Background color
                     borderRadius: BorderRadius.circular(5.0), // Rounded corners
                   ),
                   child: Text(
                     '${selectedDate.year.toString().substring(2)}-${months[selectedDate.month - 1]}-${selectedDate.day}',
-                    style: const TextStyle(
-                      fontSize: 22,
-                      color: Colors.white, // Text color
-                    ),
+                    style: AppStyles.subheading
                   ),
                 ),
               ),
@@ -186,7 +185,7 @@ class _AddTransactionState extends State<AddTransaction> {
               },
               child: const Text(
                 'Add',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: AppStyles.buttonOutlinedText
               ),
             ),
           ),

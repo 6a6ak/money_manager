@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:money_manager/db/db_manager.dart';
 import 'package:money_manager/pages/add_transaction.dart';
-import 'package:money_manager/colors.dart';
-import 'package:money_manager/styles.dart';
+import 'package:money_manager/pages/styles/colors.dart';
+import 'package:money_manager/pages/styles/styles.dart';
+import 'package:money_manager/pages/styles/padding.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,13 +19,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff657b7c),
+      backgroundColor: AppColors.storm,
       appBar: AppBar(
-        backgroundColor: const Color(0xff657b7c),
-        title: const Text(
-          'Money Manager',
-          style: TextStyle(color: Colors.white),
-        ),
+        backgroundColor: AppColors.storm,
+        title:
+           const Text(
+            'Money Manager',
+            style: AppStyles.appbar,
+          ),
+
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.ember,
@@ -42,11 +45,10 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               'Dear user welcome',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
+              style: AppStyles.bodyText,
+
               ),
-            ),
+
             FutureBuilder<Map>(
               future: dbManager.fetch(),
               builder: (context, snapShot) {
@@ -62,26 +64,24 @@ class _HomePageState extends State<HomePage> {
                     );
                   }
                   return Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: AppPadding.allSmall,
                     child: Container(
                       width: double.infinity,
-                      margin: EdgeInsets.only(top: 15),
+                      margin: EdgeInsets.only(top: 25),
                       height: 150,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         gradient: LinearGradient(
-                          colors: [Colors.purple, Colors.blue],
+                          colors: AppColors.gradient,
                         ),
                       ),
                       child: Column(
                         children: [
                           Text(
                             'Dear User Welcome!',
-                            style: TextStyle(
-                              fontSize: 24,
-                              color: Color(0xff092635),
-                            ),
+                            style: AppStyles.heading,
                           ),
+
                         ],
                       ),
                     ),
@@ -98,7 +98,9 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.all(10),
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: Colors.white,
+                gradient: LinearGradient(
+                  colors: AppColors.gradient,
+                ),
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
@@ -114,11 +116,9 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     'This is a container',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                    style: AppStyles.appbar
                     ),
-                  ),
+
                   SizedBox(height: 10),
                   Text(
                     'You can add more widgets here.',
