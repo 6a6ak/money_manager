@@ -1,4 +1,5 @@
-# money_manager
+# money_manager  ![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter) ![Dart](https://img.shields.io/badge/Dart-0175C2?logo=dart)
+
 
 A new Flutter project.
 
@@ -33,9 +34,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-# money_manager
 
-![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter)
-![Dart](https://img.shields.io/badge/Dart-0175C2?logo=dart)
-![build](https://github.com/6a6ak/money_manager/actions/workflows/ci.yml/badge.svg)
-![license](https://img.shields.io/github/license/6a6ak/money_manager.svg)
